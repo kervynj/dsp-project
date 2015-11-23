@@ -1,7 +1,9 @@
+
 clear all;
 
+load_file = input('Enter File name to load for analysis:', 's')
 
-load('voiceData');
+load(load_file);
 
 L = length(myRecording);
 T = 1/Fs;
@@ -13,8 +15,9 @@ P1 = P2(1:L/2+1);
 P1(2:end-1) = 2*P1(2:end-1);
 
 f = Fs*(0:(L/2))/L;
-plot(f,P1)
+plot(f,(P1))
 title('Single-Sided Amplitude Spectrum of Voice Recording')
 xlabel('f (Hz)')
 ylabel('|P1(f)|')
+
 
