@@ -1,11 +1,12 @@
 clear all
 close all
+file_name = input('Enter name for file to be saved as:','s')
 
 % Obtain sound device informations
 devinfo = audiodevinfo;
 
 % set the input and output device we will use in the code
-inputdev = 1;
+inputdev = devinfo.input(1).ID;
 outputdev = devinfo.output(1).ID;
 
 % Set the sample rate, bit depth and channels for the recording
@@ -40,4 +41,4 @@ play(playObj);
 
 % This will store our current workspace (e.g. all variables) so we can work
 % on it later
-save('voiceData');
+save(file_name);
